@@ -1,0 +1,4 @@
+{
+    "dbPath": "./db/coinjar-rates.sqlite",
+    "dbPathDev": "./test/test.sqlite"
+}
