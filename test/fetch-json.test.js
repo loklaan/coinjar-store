@@ -27,16 +27,18 @@ describe('FETCH-JSON', function() {
     })
 
     it('should respond well to valid json', function(done) {
-        fetch('http://localhost:8000/?type=json', function(err, obj) {
+        fetch('http://localhost:8000/?type=json', function(err, date, obj) {
             expect(err).to.not.exist
             expect(obj).is.a('object')
+            expect(date).is.a('string')
             done()
         })
     })
     it('should respond with error on invalid json url', function(done) {
-        fetch('http://localhost:8000/?type=notjson', function(err, obj) {
+        fetch('http://localhost:8000/?type=notjson', function(err, date, obj) {
             expect(err).to.exist
             expect(obj).to.not.exist
+            expect(date).to.not.exist
             done()
         })
     })
