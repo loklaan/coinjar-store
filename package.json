@@ -1,6 +1,6 @@
 {
   "name": "coinjar-store",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Stores realtime CoinJar market rates in a SQLite3 database.",
   "main": "index.js",
   "directories": {
