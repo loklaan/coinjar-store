@@ -10,6 +10,10 @@ var program = require('commander')
 var fs = require('fs')
 var path = require('path')
 
+process.on('uncaughtException', function(err) {
+    console.log('Caught exception: ' + err);
+})
+
 // cli setup
 program
     .version(require('./package.json').version)
