@@ -19,7 +19,7 @@ describe('STORE-JSON', function() {
             })
         })
 
-        it('should create non-existant database', function(done) {
+        it('should create non-existent database', function(done) {
             fs.exists(db, function(exists) {
                 expect(exists).to.be.false
                 if (!exists)
@@ -34,7 +34,7 @@ describe('STORE-JSON', function() {
                     done()
             })
         })
-        it('should open accessable database', function(done) {
+        it('should open accessible database', function(done) {
             fs.exists(db, function(exists) {
                 expect(exists).to.be.true
                 if (exists)
