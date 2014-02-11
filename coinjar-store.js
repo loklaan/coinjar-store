@@ -47,7 +47,6 @@ var store = new Storage(dbPath, function(err) {
     if (err)
         throw err
 })
-store.on('error', console.error)
 
 timer(interval, repeatFetch)
 function repeatFetch() { // recursive tom foolery
@@ -55,8 +54,12 @@ function repeatFetch() { // recursive tom foolery
         if (err)
             console.error(err)
         var print = '    '
-        if (jsonObj.spot.USD)
-            print += '$' + Number(jsonObj.spot.USD).toFixed(2) + ' @ '
+        try {
+            if (jsonObj.spot.USD)
+                print += '$' + Number(jsonObj.spot.USD).toFixed(2) + ' @ '
+        } catch (err) {
+            print += '$???.??' + ' @ '
+        }
         print += (new Date(fetchTime)).toTimeString()
         console.log(print)
         store.insert(fetchTime, jsonObj)
