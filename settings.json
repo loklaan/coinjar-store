@@ -1,6 +1,5 @@
 {
     "dbPath": "./db/coinjar-rates.sqlite",
-    "dbPathDev": "./test/test.sqlite",
     "url": "http://coinjar-data.herokuapp.com/fair_rate.json",
     "interval": "30"
 }

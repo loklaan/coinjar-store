@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-var fetch = require('../lib/fetch-json.js')
+var fetch = require('../src/fetch-json.js')
 var http = require('http')
 var url = require('url')
 

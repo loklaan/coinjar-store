@@ -1,8 +1,7 @@
 var expect = require('chai').expect
-var Store = require('../lib/store-json.js')
+var Store = require('../src/store-json.js')
 var fs = require('fs')
-var config = require('../config.json')
-var db = config.dbPathDev
+var db = "test.sqlite"
 
 function clean() {
     if (fs.existsSync(db)) {
