@@ -22,11 +22,12 @@
   "devDependencies": {
     "chai": "~1.8.1",
     "grunt-blanket": "~0.0.8",
+    "grunt-cli": "~0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-coveralls": "~0.3.0",
-    "grunt-mocha-test": "^0.10.2",
+    "grunt-mocha-test": "~0.10.2",
     "mocha-lcov-reporter": "~0.0.1"
   },
   "scripts": {
