@@ -15,22 +15,23 @@ var someFunction = function() {
 
 function fixedTimeout(interval, callback) {
   if ((60 % interval) === 0) {
-    var currentminute = new Date().getMinutes()
-    var nextminutes = 0
+    var currentminute = new Date().getMinutes();
+    var nextminutes = 0;
     while (nextminutes <= currentminute) {
-      nextminutes += interval
+      nextminutes += interval;
     }
 
-    var nextinterval = new Date()
-    nextinterval.setMinutes(nextminutes)
-    nextinterval.setSeconds(0)
-    nextinterval.setMilliseconds(0)
+    var nextinterval = new Date();
+    nextinterval.setMinutes(nextminutes);
+    nextinterval.setSeconds(0);
+    nextinterval.setMilliseconds(0);
 
-    var now = new Date()
-    setTimeout(callback, nextinterval.getTime() - now.getTime(), interval)
+    var now = new Date();
+    setTimeout(callback, nextinterval.getTime() - now.getTime(), interval);
   }
-  else
-    console.log('Error: <' + interval + '> is not a divisible of 60')
+  else {
+    console.log('Error: <' + interval + '> is not a divisible of 60');
+  }
 }
 
-module.exports = fixedTimeout
+module.exports = fixedTimeout;

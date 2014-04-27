@@ -15,18 +15,21 @@
 //         throw err
 // })
 
-var sqlite3 = require('sqlite3')
-var util = require('util')
+var sqlite3 = require('sqlite3');
+var util = require('util');
 
 function JsonStorage(dbPath, cb) {
 
     var db = new sqlite3.Database(dbPath, function(err) {
-        if (err)
-            cb(err)
-    })
+        if (err) {
+            cb(err);
+        }
+    });
 
-    var createStatement = 'create table if not exists stored_json (datetime varchar, json varchar)'
-    db.run(createStatement, function(err) {cb(err)})
+    var createStatement = 'create table if not exists stored_json (datetime varchar, json varchar)';
+    db.run(createStatement, function(err) {
+        cb(err);
+    });
 
     /**
      * Inserts a parsed date and stringified json into the database instance
@@ -36,21 +39,22 @@ function JsonStorage(dbPath, cb) {
      */
     this.insert = function(date, json, callback) {
         if (isNaN(Date.parse(date))) {
-            callback(new Error('must use valid date format ie. ISO-8601'))
-            return
+            callback(new Error('must use valid date format ie. ISO-8601'));
+            return;
         }
-        var jsonString = (json instanceof String) ? json : JSON.stringify(json)
-        var datetimeString = new Date(Date.parse(date)).toISOString()
-        var insertStatement = 'insert into stored_json values (?, ?)'
+        var jsonString = (json instanceof String) ? json : JSON.stringify(json);
+        var datetimeString = new Date(Date.parse(date)).toISOString();
+        var insertStatement = 'insert into stored_json values (?, ?)';
 
         db.run(insertStatement, [datetimeString, jsonString], function(err) {
-            if (!(callback instanceof Function))
-                callback = function(){}
-            callback(err)
-            return
-        })
-    }
+            if (!(callback instanceof Function)) {
+                callback = function(){};
+            }
+            callback(err);
+            return;
+        });
+    };
 }
 
 
-module.exports = JsonStorage
+module.exports = JsonStorage;

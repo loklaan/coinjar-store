@@ -77,6 +77,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('build', ['clean', 'blanket', 'copy']);
-  grunt.registerTask('default', ['build', 'mochaTest']);
+  grunt.registerTask('default', ['jshint', 'build', 'mochaTest']);
   grunt.registerTask('ci', ['default', 'coveralls']);
 };

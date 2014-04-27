@@ -10,28 +10,28 @@
 //         console.log(jsonObj + ' @ ' + date)
 // })
 
-var request = require('request')
+var request = require('request');
 
 function isJsonContent(contentType) {
-    return typeof contentType === 'string' && contentType.toString().indexOf('application/json') != -1
+    return typeof contentType === 'string' && contentType.toString().indexOf('application/json') !== -1;
 }
 
 module.exports = function (url, callback) {
-    var fetchTime = (new Date).toISOString()
+    var fetchTime = (new Date()).toISOString();
 
     request(url, function (err, res, body) {
         if (!err && res.statusCode === 200) {
             if (isJsonContent(res.headers['content-type'])) {
-                return callback(null, fetchTime, JSON.parse(body))
+                return callback(null, fetchTime, JSON.parse(body));
             } else {
-                return callback(new Error('not json'))
+                return callback(new Error('not json'));
             }
         } else if (!err && res.statusCode === 408) {
-            return callback(new Error('request timeout'))
+            return callback(new Error('request timeout'));
         } else if (err) {
-            return callback(new Error('unable to fetch'))
+            return callback(new Error('unable to fetch'));
         } else {
-            return callback(new Error('unknown error'))
+            return callback(new Error('unknown error'));
         }
-    })
-}
+    });
+};
