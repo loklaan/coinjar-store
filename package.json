@@ -1,14 +1,8 @@
 {
   "name": "coinjar-store",
-  "version": "0.1.0",
-  "description": "Stores realtime CoinJar market rates in a SQLite3 database.",
+  "version": "0.1.1",
+  "description": "Stores realtime CoinJar market rates.",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "make test"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com:loklaan/coinjar-store.git"
@@ -16,20 +10,27 @@
   "keywords": [
     "coinjar",
     "bitcoin",
-    "json",
-    "sqlite"
+    "json"
   ],
   "author": "loklaan",
   "license": "MIT",
-  "devDependencies": {
-    "chai": ">=1.8.1",
-    "mocha": ">=1.17.0"
-  },
   "dependencies": {
-    "commander": ">=2.1.0",
-    "coveralls": "^2.10.0",
-    "mocha-lcov-reporter": "0.0.1",
-    "request": ">=2.33.0",
-    "sqlite3": ">=2.2.0"
+    "commander": "~2.1.0",
+    "request": "~2.33.0",
+    "sqlite3": "~2.2.0"
+  },
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "grunt-blanket": "~0.0.8",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-coveralls": "~0.3.0",
+    "grunt-mocha-test": "^0.10.2",
+    "mocha-lcov-reporter": "~0.0.1"
+  },
+  "scripts": {
+    "test": "grunt",
+    "ci": "grunt ci"
   }
 }
