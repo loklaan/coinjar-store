@@ -1,5 +1,7 @@
 #CoinJar-Store
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/loklaan/coinjar-store.svg)](https://greenkeeper.io/)
+
 Storage for [CoinJar](http://coinjar.io) market rates in realtime.
 
 Using an on-the-minute interval, fetches rates from [some source](http://coinjar-data.herokuapp.com/fair_rate.json) and stores the retrieved JSON in a SQLite database.
